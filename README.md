@@ -1,6 +1,6 @@
 # grupo_11_mimimbreria
 
-# El sitio estará enfocado en la difusión de las ventajas que tiene la utilización muebles y accesorios de fibras naturales para la decoración y equipamiento del hogar, la sensibilización del público sobre el proceso de producción de muebles y productos de mimbre y la comercialización de los mismos.
+# El sitio estará enfocado en la venta de muebles y accesorios de mimbre, basando su estrategia comercial en la difusión de las ventajas que tiene la utilización de muebles y accesorios de fibras naturales para la decoración y equipamiento del hogar, la sensibilización del público sobre el proceso de producción artesanal y la importancia de la reducción de la huella de carbono.
 Hay 3 cosas centrales a trasmitir sobre el producto
 a)	Por la manera en que se cultivan las fibras naturales y cómo se producen, su huella de carbono es menor que la de otros materiales. Tal como cada vez más gente se suma al cuidado del planeta en gestos cotidianos, como elegir ir en bicicleta al trabajo en lugar de hacerlo en auto, buscamos que esa toma de conciencia se extienda al consumo de muebles y decoración sostenibles. Productos que durante su fabricación sean responsables con el medio ambiente, que sean duraderos y se puedan usar muchos años, reutilizando y reciclando
 b)	Poner en valor lo artesanal. Cada pieza de artesanía es única, dos sillas de mimbre realizadas por el mismo artesano jamás serán exactamente iguales
