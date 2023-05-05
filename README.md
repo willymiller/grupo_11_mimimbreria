@@ -12,3 +12,5 @@ Clase social. Los consumidores de clases altas y acomodadas, con estudios medios
 Familiar y redes sociales Somos sociales por naturaleza y las decisiones de las personas cercanas a nosotros, como amigos, familia o influencers, nos influyen
 El grueso de estos consumidores se ubica en la franja de los 25 a 54 años y las mujeres superan a los hombres en esta tendencia
 # Sitios de referencia:
+•	Por los productos o servicios que ofrecen: https://www.nomadbubbles.com/muebles-de-mimbre-decoracion/ hace una clara descripción del producto aportando ideas para su uso
+•	Por los clientes a los que apunta: https://paudesign.com/como-decorar-con-muebles-ecologicos/ en el sitio se hace énfasis en la decoración sustentable, para poder decorar de esa manera, es necesario comprar muebles sustentables, como lo son los realizados en mimbre
