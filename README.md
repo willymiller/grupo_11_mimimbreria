@@ -14,3 +14,7 @@ El grueso de estos consumidores se ubica en la franja de los 25 a 54 años y las
 # Sitios de referencia:
 •	Por los productos o servicios que ofrecen: https://www.nomadbubbles.com/muebles-de-mimbre-decoracion/ hace una clara descripción del producto aportando ideas para su uso
 •	Por los clientes a los que apunta: https://paudesign.com/como-decorar-con-muebles-ecologicos/ en el sitio se hace énfasis en la decoración sustentable, para poder decorar de esa manera, es necesario comprar muebles sustentables, como lo son los realizados en mimbre
+• Por la estética que presentan: https://www.airbnb.es/ tiene un diseño claro y despojado que permite centrarse en el producto
+•	Por las funcionalidades implementadas: 
+o	https://www.mercadolibre.com.ar/ carrito de compras funcional, venta de productos
+o	https://acortar.link/G0ReKR muestra fotos de los productos y con roll over el producto en contexto
