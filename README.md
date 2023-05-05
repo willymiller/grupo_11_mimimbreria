@@ -1,5 +1,4 @@
 # grupo_11_mimimbreria
-
 # El sitio estará enfocado en la venta de muebles y accesorios de mimbre, basando su estrategia comercial en la difusión de las ventajas que tiene la utilización de muebles y accesorios de fibras naturales para la decoración y equipamiento del hogar, la sensibilización del público sobre el proceso de producción artesanal y la importancia de la reducción de la huella de carbono.
 Hay 3 cosas centrales a trasmitir sobre el producto
 a)	Por la manera en que se cultivan las fibras naturales y cómo se producen, su huella de carbono es menor que la de otros materiales. Tal como cada vez más gente se suma al cuidado del planeta en gestos cotidianos, como elegir ir en bicicleta al trabajo en lugar de hacerlo en auto, buscamos que esa toma de conciencia se extienda al consumo de muebles y decoración sostenibles. Productos que durante su fabricación sean responsables con el medio ambiente, que sean duraderos y se puedan usar muchos años, reutilizando y reciclando
@@ -12,3 +11,4 @@ Tecnología. Internet nos ha permitido tomar decisiones de consumo más responsa
 Clase social. Los consumidores de clases altas y acomodadas, con estudios medios y superiores, tienden a consumir más este tipo de productos. Cada vez más su consumo aumenta por parte de jóvenes, influenciados por su entorno cultural
 Familiar y redes sociales Somos sociales por naturaleza y las decisiones de las personas cercanas a nosotros, como amigos, familia o influencers, nos influyen
 El grueso de estos consumidores se ubica en la franja de los 25 a 54 años y las mujeres superan a los hombres en esta tendencia
+# Sitios de referencia:
