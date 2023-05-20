@@ -18,3 +18,5 @@ El grueso de estos consumidores se ubica en la franja de los 25 a 54 años y las
 •	Por las funcionalidades implementadas: 
 o	https://www.mercadolibre.com.ar/ carrito de compras funcional, venta de productos
 o	https://acortar.link/G0ReKR muestra fotos de los productos y con roll over el producto en contexto
+# Tablero de trabajo< />
+https://trello.com/b/JzbV4YOM/mi-mimbrer%C3%ADa
