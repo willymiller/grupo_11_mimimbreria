@@ -9,3 +9,19 @@
 -	Incorporar fuentes de estudio que complementen las provistas por el curso
 -	Informe diario de avance de tareas e incidentes
 -	Establecer prioridades
+
+3 Continuar haciendo: 
+-	Apoyarnos mutuamente, sobre todo en momentos en que las situaciones personales nos superan
+-	Los integrantes que tienen habilidades específicas, apoyan a los que tienen complicaciones en las mismas
+-	Repartirnos las tareas equitativamente, según el perfil de cada uno
+-	Cumplir con las fechas de entrega
+-	Trabajo en equipo
+-	Optimismo constante
+
+4.	Hacer menos: 
+-	No entorpecer o criticar el trabajo de los compañeros, sino más bien aportar ideas para mejorarlo
+-	Empezar una tarea sin haber terminado la anterior
+
+5.	Dejar de hacer: 
+-	Extender la duración de las reuniones hablando de temas personales o de trabajo
+-	Procrastinar
