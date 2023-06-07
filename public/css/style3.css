@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+/*! normalize.css basado en http://github.com/necolas/normalize.css */
+
+/* =============================================================================
+  definiciones de display de HTML5 
+   ========================================================================== */
+
+/*
+ * faltan algunas cosas
+ */
+
+body {
+	margin: 0;
+}
+
+m {
+    display: block;
+}
+
+
+
+/*
+ * no se si se ve en todos los navegadores
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/*
+ * controles de audio por si acaso
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden] {
+    display: none;
+}
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correcciones al cambiar el tamaño antiguo de IE6/7 cuando el texto está en medidas em y no px
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Para que el texto no se reajuste al cambiar la orientación del celu
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+
+html {
+    font-size: 100%;
+    
+    -webkit-text-size-adjust: 100%;
+    
+    -ms-text-size-adjust: 100%;
+    
+}
+html,
+button,
+input,
+select,
+textarea {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+
+a:focus {
+    outline: thin dotted;
+}
+
+/* =============================================================================
+  Tipografía
+   ========================================================================== */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.75em;
+    margin: 2.33em 0;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+small {
+    font-size: 75%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+
+button,
+input {
+    line-height: normal;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+    *overflow: visible;
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    *height: 13px;   
+    *width: 13px;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	cursor: default;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ch-thumb {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	box-shadow: inset 0 0 0 15px rgba(255, 255, 255, 0.5);
+
+	-webkit-transform-origin: 95% 40%;
+	-moz-transform-origin: 95% 40%;
+	-o-transform-origin: 95% 40%;
+	-ms-transform-origin: 95% 40%;
+	transform-origin: 95% 40%;
+
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.ch-thumb:after {
+	content: '';
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	border-radius: 50%;
+	top: 40%;
+	left: 95%;
+	margin: -4px 0 0 -4px;
+	background: rgb(14, 14, 14);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(14, 14, 14, 1) 0%, rgba(125, 126, 125, 1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(14, 14, 14, 1)), color-stop(100%, rgba(125, 126, 125, 1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(14, 14, 14, 1) 0%, rgba(125, 126, 125, 1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(14, 14, 14, 1) 0%, rgba(125, 126, 125, 1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(14, 14, 14, 1) 0%, rgba(125, 126, 125, 1) 100%);
+	background: radial-gradient(ellipse at center, rgba(14, 14, 14, 1) 0%, rgba(125, 126, 125, 1) 100%);
+	box-shadow: 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.ch-img-1 {
+	object-fit: fill;
+	background-image: url(../images/SillonDeco3.jpg);
+	z-index: 12;
+}
+
+.ch-img-2 {
+	object-fit: contain;
+	background-image: url(../images/LamparasDeco1.jpg);
+	z-index: 11;
+}
+
+.ch-img-3 {
+	object-fit: fill;
+	background-image: url(../images/MesitasDeco1.jpg);
+	z-index: 10;
+}
+
+.ch-img-4 {
+	object-fit: fill;
+	background-image: url(../images/MasetasDeco1.jpg);
+	z-index: 10;
+}
+
+.ch-info {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	overflow: hidden;
+	background: #012d52 url(../images/noise.png);
+	box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.ch-info h3 {
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	letter-spacing: 2px;
+	font-size: 18px;
+	margin: 0 60px;
+	padding: 22px 0 0 0;
+	height: 85px;
+	font-family: 'Gloria Hallelujah', cursive;
+	text-shadow:
+		0 0 1px #fff,
+		0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ch-info p {
+	color: #fff;
+	padding: 10px 5px;
+	font-style: italic;
+	margin: 0 10px;
+	font-size: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.ch-info p a {
+	display: block;
+	color: #333;
+	width: 80px;
+	height: 80px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	color: #fff;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 24px;
+	margin: 7px auto 0;
+	font-family: 'Gloria Hallelujah', cursive;
+	opacity: 0;
+
+	-webkit-transition:
+		-webkit-transform 0.3s ease-in-out 0.2s,
+		opacity 0.3s ease-in-out 0.2s,
+		background 0.2s linear 0s;
+	-moz-transition:
+		-moz-transform 0.3s ease-in-out 0.2s,
+		opacity 0.3s ease-in-out 0.2s,
+		background 0.2s linear 0s;
+	-o-transition:
+		-o-transform 0.3s ease-in-out 0.2s,
+		opacity 0.3s ease-in-out 0.2s,
+		background 0.2s linear 0s;
+	-ms-transition:
+		-ms-transform 0.3s ease-in-out 0.2s,
+		opacity 0.3s ease-in-out 0.2s,
+		background 0.2s linear 0s;
+	transition:
+		transform 0.3s ease-in-out 0.2s,
+		opacity 0.3s ease-in-out 0.2s,
+		background 0.2s linear 0s;
+
+	-webkit-transform: translateX(60px) rotate(90deg);
+	-moz-transform: translateX(60px) rotate(90deg);
+	-o-transform: translateX(60px) rotate(90deg);
+	-ms-transform: translateX(60px) rotate(90deg);
+	transform: translateX(60px) rotate(90deg);
+
+	-webkit-backface-visibility: hidden;
+}
+
+.ch-info p a:hover {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.ch-item:hover .ch-thumb {
+	box-shadow: inset 0 0 0 15px rgba(255, 255, 255, 0.5), 0 1px 3px rgba(0, 0, 0, 0.2);
+	-webkit-transform: rotate(-110deg);
+	-moz-transform: rotate(-110deg);
+	-o-transform: rotate(-110deg);
+	-ms-transform: rotate(-110deg);
+	transform: rotate(-110deg);
+}
+
+.ch-item:hover .ch-info p a {
+	opacity: 1;
+	-webkit-transform: translateX(0px) rotate(0deg);
+	-moz-transform: translateX(0px) rotate(0deg);
+	-o-transform: translateX(0px) rotate(0deg);
+	-ms-transform: translateX(0px) rotate(0deg);
+	transform: translateX(0px) rotate(0deg);
+}
+
+.ch-grid {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+	display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	width: 250px;
+	height: 250px;
+	display: inline-block;
+	margin: 20px;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.clr {
+	clear: both;
+	padding: 0;
+	height: 0;
+	margin: 0;
+
+}
+
+.main {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.container>header {
+	margin: 10px;
+	padding: 20px 10px 10px 10px;
+	position: relative;
+	display: block;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.container>header h1 {
+	font-size: 32px;
+	line-height: 32px;
+	margin: 0;
+	position: relative;
+	font-weight: 300;
+	color: #777;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.container>header h2 {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	margin: 0;
+	padding: 15px 0 5px 0;
+	color: #888;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+body {
+	font-family: 'Gloria Hallelujah', cursive;
+	background: #f9f9f9 url(../images/bg.jpg);
+	font-weight: 300;
+	font-size: 15px;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.clr {
+	clear: both;
+	padding: 0;
+	height: 0;
+	margin: 0;
+}
+
+.main {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.container>header {
+	margin: 10px;
+	padding: 20px 10px 10px 10px;
+	position: relative;
+	display: block;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.container>header h1 {
+	font-size: 32px;
+	line-height: 32px;
+	margin: 0;
+	position: relative;
+	font-weight: 300;
+	color: #777;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.container>header h2 {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	margin: 0;
+	padding: 15px 0 5px 0;
+	color: #888;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
