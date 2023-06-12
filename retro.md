@@ -1,3 +1,4 @@
+Retro Sprint 2
 1.	Comenzar a hacer: 
 -	Comenzar a utilizar sitios de prueba para HTML, JavaScript y CSS
 -	Desafiarnos mutuamente a mejorar en aquello que estamos más flojos, obligarnos a salir de nuestra zona de confort
@@ -27,3 +28,18 @@
 -	Extender la duración de las reuniones hablando de temas personales o de trabajo
 -	Procrastinar
 -	Entrar tarde a las reuniones
+
+Retro Sprint 3
+
+1.	Comenzar a hacer: 
+-	Utilizar sitios de prueba para HTML, JavaScript y CSS
+-	Desafiarnos a mejorar en aquello que estamos más flojos, para obligarnos a salir de nuestra zona de confort
+-	Informe diario de avance de tareas e incidentes
+
+2.	Hacer más:  
+-	Reuniones diarias
+-	Incorporar fuentes de estudio que complementen las provistas por el curso
+-	Establecer prioridades para no andar tan justos con los tiempos de presentación
+-	Acotar el horario dedicado al trabajo formal, para poder dedicar más tiempo al curso
+-	Investigar sitios web con funcionalidades poco usadas, por ejemplo, incorporación de lenguaje de señas
+- Optimismo constante
