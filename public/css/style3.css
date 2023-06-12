@@ -27,8 +27,8 @@ audio,
 canvas,
 video {
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    display: inline;
+    zoom: 1;
 }
 
 /*
@@ -58,11 +58,11 @@ audio:not([controls]) {
 
 html {
     font-size: 100%;
-    
+
     -webkit-text-size-adjust: 100%;
-    
+
     -ms-text-size-adjust: 100%;
-    
+
 }
 html,
 button,
@@ -217,7 +217,7 @@ input[type="reset"],
 input[type="submit"] {
     cursor: pointer;
     -webkit-appearance: button;
-    *overflow: visible;
+    overflow: visible;
 }
 
 button[disabled],
@@ -229,8 +229,8 @@ input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
-    *height: 13px;   
-    *width: 13px;
+    height: 13px;   
+    width: 13px;
 }
 
 input[type="search"] {
@@ -346,7 +346,7 @@ table {
 	height: 100%;
 	border-radius: 50%;
 	overflow: hidden;
-	background: #012d52 url(../images/noise.png);
+	background: #308781 url(../images/noise.png);
 	box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -464,8 +464,8 @@ table {
 }
 
 .ch-grid li {
-	width: 250px;
-	height: 250px;
+	width: 320px;
+	height: 320px;
 	display: inline-block;
 	margin: 20px;
 }
