@@ -52,6 +52,8 @@ RETRO SPRINT 3
 -	Cumplir con las fechas de entrega
 -	Trabajo en equipo
 -	Tener paciencia con los tiempos de los otros integrantes del equipo
+-	Poner objetivos para cada reunion
+-	que todos compartan sus ideas y comentarios
 
 4.	Hacer menos: 
 -	No entorpecer o criticar el trabajo de los compañeros, sino más bien aportar ideas para mejorarlo
