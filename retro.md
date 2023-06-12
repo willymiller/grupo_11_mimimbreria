@@ -1,4 +1,4 @@
-Retro Sprint 2
+RETRO SPRINT 2
 1.	Comenzar a hacer: 
 -	Comenzar a utilizar sitios de prueba para HTML, JavaScript y CSS
 -	Desafiarnos mutuamente a mejorar en aquello que estamos más flojos, obligarnos a salir de nuestra zona de confort
@@ -29,7 +29,7 @@ Retro Sprint 2
 -	Procrastinar
 -	Entrar tarde a las reuniones
 
-Retro Sprint 3
+RETRO SPRINT 3
 
 1.	Comenzar a hacer: 
 -	Utilizar sitios de prueba para HTML, JavaScript y CSS
