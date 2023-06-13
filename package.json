@@ -11,13 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/willymiller/grupo_11_mimimbreria.git"
   },
-  "author": "Willy, Silvia, Marcela, Kely",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/willymiller/grupo_11_mimimbreria/issues"
   },
   "homepage": "https://github.com/willymiller/grupo_11_mimimbreria#readme",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^2.0.22"
   }
