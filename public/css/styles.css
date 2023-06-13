@@ -18,6 +18,17 @@ header{
     height: auto;
 }
 
+/* .nav-imagen{
+    position: absolute;
+    z-index: -1;
+} */
+
+.nav-imagen img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
 .logo{
     width: auto;
     margin: auto;
@@ -573,7 +584,7 @@ footer .footer-menu-links, .footer-productos-links, .footer-descubri-links, .foo
         width: 95%;
         flex-direction: column;
         margin: auto;
-        margin-top: 250px;
+        margin-top: 290px;
     }
 
     /** Estilos para el Login en Pc **/
