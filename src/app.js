@@ -4,6 +4,13 @@ const mainRoutes = require('./routers/mainRoutes');
 const usersRoutes = require('./routers/usersRoutes');
 const productsRoutes = require('./routers/productsRoutes');
 const cartRoutes = require('./routers/cartRoutes');
+const session = require('express-session');
+const cookie = require('cookie-parser');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
+app.use(cookie());
+app.use(userLoggedMiddleware);
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -16,7 +23,11 @@ app.get('/', mainRoutes);
 app.get('/nuestraHistoria', mainRoutes);
 
 app.get('/login', usersRoutes);
+app.post('/login', usersRoutes);
 app.get('/register', usersRoutes);
+app.post('/register', usersRoutes);
+app.get('/profile', usersRoutes);
+app.get('/logout', usersRoutes);
 
 app.get('/products', productsRoutes);
 app.get('/products/create', productsRoutes);

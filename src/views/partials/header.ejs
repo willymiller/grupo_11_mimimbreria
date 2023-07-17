@@ -4,7 +4,7 @@
     </div>
     <div class="nav-principal">
         <div class="logo">
-            <a href="/"><img src="/img/logo_nuevo.png" alt="Logo de Mi Mimbrería"></a>
+            <a href="/"><img src="/img/logo.png" alt="Logo de Mi Mimbrería"></a>
         </div>
         <div class="navegacion">
             <div class="paginas">
@@ -26,7 +26,11 @@
         <div class="usuarios">
             <input type="search" id="search" placeholder="Buscar..." />
             <i class="fas fa-search"></i>
-            <a href="/login"><i class="fas fa-user"></i></a>
+            <% if(locals.userLogged) { console.log(locals.userLogged) %>
+                <a href="/profile"><img class="avatar-logged" src="/img/avatars/<%= locals.userLogged.avatar %>" alt=""></i></a>
+            <% } else{ %>
+                <a href="/login"><i class="fas fa-user"></i></a>
+            <% } %>
             <a href="/carts/cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </div>
