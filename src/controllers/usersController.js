@@ -18,14 +18,10 @@ let usersController = {
         return res.render(path.join(__dirname, "../views/users/login"), {errors: resultValidation.mapped(), oldData: req.body});
       }
       const userToLogin = users.find(user => user.email === req.body.email);
-      // const passwordFromLogin = userToLogin.password;
-      // const passwordFromBody = req.body.password;
 
       if(userToLogin){
-        // const isPasswordCorrect = bcryptjs.compareSync(passwordFromBody, passwordFromLogin);
         const isPasswordCorrect = bcrypt.compareSync(req.body.password, userToLogin.password);
         if(isPasswordCorrect){
-          delete userToLogin.password;
           req.session.userLogged = userToLogin;
           if(req.body.remember){
             res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60});
@@ -52,6 +48,7 @@ let usersController = {
         if(userInDb){
           return res.render(path.join(__dirname, "../views/users/register"), {errors: {email:{msg:"El email ya está registrado"}}, oldData: req.body});
         }
+        console.log(users.length)
         const userToCreate = {
           id: users[users.length -1].id + 1,
           name: req.body.name,
@@ -78,8 +75,8 @@ let usersController = {
     },
 
     logout: function(req, res){
-      res.clearCookie('userEmail');
       req.session.destroy();
+      res.clearCookie('userEmail');
       res.redirect('/');
     }
  };
