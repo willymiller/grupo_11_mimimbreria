@@ -1,4 +1,54 @@
-const { log } = require('console');
+const path = require('path');
+const {validationResult} = require("express-validator")
+const db = require('../database/models')
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+module.exports = {
+  //Home de de la web
+  index: (req, res) => {
+    db.Products.findAll(
+        {where: {order: 1}},
+        {include: ['categories']})
+        .then((products)=>{
+            db.Categories.findAll()
+        .then((categories)=>{
+          res.render(path.join(__dirname, "../views/main/index"), {products, categories, toThousand})
+        })
+      })
+	},
+
+  //Nuestra Historia
+  nuestraHistoria: (req, res) => {
+/*     db.Categories.findAll()
+      .then((categories)=>{
+        res.render(path.join(__dirname, "../views/main/nuestraHistoria"), {categories})
+      }) */
+      res.render(path.join(__dirname, "../views/main/nuestraHistoria"))
+    },
+
+  tuHuellaDeCarbono: (req, res) => {
+/*     db.Categories.findAll()
+    .then((categories)=>{
+      res.render(path.join(__dirname, "../views/main/tuHuellaDeCarbono"), {categories})
+    }) */
+    res.render(path.join(__dirname, "../views/main/tuHuellaDeCarbono"))
+  },
+  
+  videoArtesanos: (req, res) => {
+    /*     db.Categories.findAll()
+        .then((categories)=>{
+          res.render(path.join(__dirname, "../views/main/tuHuellaDeCarbono"), {categories})
+        }) */
+        res.render(path.join(__dirname, "../views/main/videoArtesanos"))
+      }
+  
+}
+
+
+
+
+
+/* const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -19,4 +69,4 @@ const mainController = {
 
  };
  
- module.exports = mainController;
+ module.exports = mainController; */
