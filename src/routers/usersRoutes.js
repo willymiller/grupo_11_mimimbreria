@@ -57,10 +57,13 @@ usersLoginValidations = [
 ]
 
 router.get("/login", guestMiddleware, usersController.login);
-router.post("/login", usersLoginValidations, usersController.processLogin);
+router.post("/login", usersLoginValidations, usersController.loginProcess);
 router.get("/register", guestMiddleware, usersController.register);
-router.post("/register", upload.single('avatar'), usersRegisterValidations, usersController.processRegister);
+router.post("/register", upload.single('avatar'), usersRegisterValidations, usersController.registerProcess);
 router.get("/profile", authMiddleware, usersController.profile);
 router.get("/logout", usersController.logout);
+router.get("/edit/:id", authMiddleware, usersController.userEdit);
+router.post("/edit/:id", upload.single('avatar'), usersRegisterValidations, usersController.userEditProcess);
+
 
 module.exports = router;

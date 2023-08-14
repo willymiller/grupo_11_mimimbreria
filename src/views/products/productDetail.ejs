@@ -3,94 +3,197 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <main>
-        <h1>Detalle del Producto</h1>
-        <div class="producto-detalle">
-            <div class="producto-detalle-imagen">
-                <img src="/img/products/<%= producto.image %>" alt="" class="imagen">
-            </div>
-            <div class="producto-detalle-caracteristicas">
-                <h2><%= producto.name %></h2>
-                <h3>* * * * * 5 opiniones</h3>
-                <h2>$ <%= producto.price %></h2>
-                <h2>Descripción</h2>
-                <h3><%= producto.description %></h3>
-                <h2>Categoría: </h2>
-                <h3><%= producto.category %></h3>
-            </div>
+    <main class="container-fluid">
+        <div class="seccion-titulos">
+            <h2>Detalle del Producto</h2>
         </div>
-        <div class="producto-detalle-caracteristicas-botones">
-            <% if(locals.isLogged && locals.userLogged.role == "admin") { %>
-                <button type="submit" class="producto-detalle-caracteristicas-botones-submit"><a href="/products/edit/<%= producto.id %>">Editar</a></button>
-                <button type="submit" class="producto-detalle-caracteristicas-botones-submit"><a href="/products/create">Agregar</a></button>
-                <button type="submit" class="producto-detalle-caracteristicas-botones-submit"><a href="/products/delete/<%= producto.id %>">Borrar</a></button>
-            <% } else{ %>
-                <button type="submit" class="producto-detalle-caracteristicas-botones-submit">Comentar</button>
-                <button type="submit" class="producto-detalle-caracteristicas-botones-submit">Agregar al Carrito</button>
-            <% } %>
-        </div>
-        <h1>Productos Similares</h1>
-        <div class="novedades-productos">
-            <% productosCategory.forEach(function(p){
-                if(p.id != producto.id){
-                %>
-                <div class="productos">
-                    <div class="productos-imagen">
-                        <img src="/img/products/<%= p.image %>" alt="">
+        <hr>
+        <div class="container-fluid">
+            <div class="card productos-card">
+                <% if(locals.isLogged){
+                    if(locals.userLogged.role_id === 1 || locals.userLogged.role_id === 2) { %>
+                        <div class="float-start">
+                            <a href="/products/create"><i class="fas fa-plus-square"></i></a>
+                            <a href="/products/edit/<%= product.id %>"><i class="fas fa-edit"></i></a>
+                            <!-- Button trigger modal -->
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminación de producto</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <h5>¿Está seguro de eliminar el producto?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-primary"><a href="/products/delete/<%= product.id %>">Borrar</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }} %>
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="/img/products/<%= product.image %>" alt="" class="imagen">
                     </div>
-                    <div class="productos-info">
-                        <p class="productos-info-titulo"><%= p.name %></p>
-                        <p>$ <%= p.price %></p>
+                    <div class="col-sm-7 float-start">
+                        <h3 class="productos-text"><%= product.product %></h3>
+                        <h4 class="productos-text">Descripción: </h4>
+                        <h5 class="productos-text"><%= product.description %></h5>
+                        <h4 class="productos-text">Categoría: <%= product.categories.category %></h4>
+                            <% if(product.discount > 0) { 
+                            const descuento = product.price * product.discount / 100;
+                            const precioConDescuento = product.price - descuento
+                            %>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="productos-text" style="text-decoration: line-through;">$ <%= toThousand(product.price) %></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="productos-text">$ <%= toThousand(precioConDescuento) %> - <%= product.discount %> % OFF</h4>
+                                </div>
+                            </div>
+                            <% }else { %>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="productos-text">$ <%= toThousand(product.price) %></h4>
+                                </div>
+                            </div>
+                            <% } %>
                     </div>
-                    <div class="productos-info-botonera">
-                        <a href="/products/detail/<%= p.id %>">Ver más</a>
-                        <i class="fas fa-truck"></i>
-                    </div>
+                    <% if(locals.isLogged){
+                        if(locals.userLogged.role_id === 3) { %>
+                            <div class="col-sm-1">
+                                <form action="/products/comment/<%= product.id %>" method="post">
+                                    <!-- Button trigger modal -->
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="float-start">
+                                        <i class="fas fa-comment"></i>
+                                    </a>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Comentarios</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <h5>Ingrese su comentario: </h5>
+                                                <textarea name="comment" id="" cols="60" rows="5"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Comentar</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <a class="float-start" href="#"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                    <% }}else{ %>
+                            <div class="col-sm-1">
+                                <a class="float-start" href="/products/comment/<%= product.id %>"><i class="fas fa-comment"></i></a>
+                                <a class="float-start" href="#"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                    <% } %>
                 </div>
-            <% }}) %>
+            </div>
+        <hr>
+        <div class="container">
+            <div class="row col-12 justify-content-center">
+                <%  let cont2 = 0;
+                    comments.forEach(function(comment){
+                    if(product.id === comment.product_id && comment.published === 1){ cont2 += 1}});
+                    if(cont2 > 0) { %>
+                <div class="seccion-titulos">
+                    <h2>Comentarios</h2>
+                </div>
+                <hr>
+                <% comments.forEach(function(comment){
+                    if(product.id === comment.product_id && comment.published === 1){ %>
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="/img/avatars/<%= comment.users.avatar %>" alt="" class="comment-avatar">
+                            </div>
+                            <div class="col-3">
+                                <h4><%= comment.users.name %></h4>
+                                <h5><%= comment.createdAt %></h5>    
+                            </div>
+                            <div class="col-6">
+                                <h5><%= comment.comment %></h5>
+                            </div>
+                        </div>
+                        <hr>
+                <% }})} %>
+            </div>
         </div>
-        <h1>Comentarios</h1>
-        <div class="productos-comentarios">
-            <div class="productos-comentarios-logo">
-                <i class="fas fa-user"></i>
+        <div class="container-fluid">
+            <%  var cont1 = 0;
+                products.forEach(function(similarProduct){
+                    if(similarProduct.categories.category === product.categories.category && similarProduct.id != product.id){
+                        cont1 += 1}
+                    })
+                if(cont1 > 0) {
+                     %>
+            <div class="seccion-titulos">
+                <h2>Productos similares</h2>
             </div>
-            <div class="productos-comentarios-usuario">
-                <h2>Marcela</h2>
-                <h3>31 de mayo 2023</h3>
-                <h3>*****</h3>
+            <div class="row col-12 justify-content-center">
+                <% products.forEach(function(similarProduct){
+                    if(similarProduct.categories.category === product.categories.category && similarProduct.id != product.id){ %>
+                            <div class="card productos" style="width: 15rem;">
+                                <a href="/products/detail/<%= similarProduct.id %>"><img src="/img/products/<%= similarProduct.image %>" class="card-img-top" alt="<%= similarProduct.product %>"></a>
+                                <div class="card-body">
+                                    <p class="card-title"><%= similarProduct.product %></p>
+                                    <% if(product.discount > 0) { 
+                                    const descuento = similarProduct.price * similarProduct.discount / 100;
+                                    const precioConDescuento = similarProduct.price - descuento
+                                    %>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text" style="text-decoration: line-through;">$ <%= toThousand(similarProduct.price) %></p>
+                                        </div>
+                                        <div class="col">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text">$ <%= toThousand(precioConDescuento) %></p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><%= similarProduct.discount %> % OFF</p>
+                                        </div>
+                                    </div>
+                                    <% }else { %>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text">$ <%= toThousand(similarProduct.price) %></p>
+                                        </div>
+                                        <div class="col">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                <% }}) %>
             </div>
-            <div class="productos-comentarios-comentario">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veritatis non ad sed modi ipsum cum exercitationem reprehenderit quae voluptatibus, adipisci quos praesentium unde quibusdam ipsa placeat, saepe aliquam perspiciatis.</h3>
-            </div>
-        </div>
-        <div class="productos-comentarios">
-            <div class="productos-comentarios-logo">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="productos-comentarios-usuario">
-                <h2>Silvia</h2>
-                <h3>29 de mayo 2023</h3>
-                <h3>*****</h3>
-            </div>
-            <div class="productos-comentarios-comentario">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veritatis non ad sed modi ipsum cum exercitationem reprehenderit quae voluptatibus, adipisci quos praesentium unde quibusdam ipsa placeat, saepe aliquam perspiciatis.</h3>
-            </div>
-        </div>
-        <div class="productos-comentarios">
-            <div class="productos-comentarios-logo">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="productos-comentarios-usuario">
-                <h2>Kely</h2>
-                <h3>15 de mayo 2023</h3>
-                <h3>*****</h3>
-            </div>
-            <div class="productos-comentarios-comentario">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veritatis non ad sed modi ipsum cum exercitationem reprehenderit quae voluptatibus, adipisci quos praesentium unde quibusdam ipsa placeat, saepe aliquam perspiciatis.</h3>
-            </div>
+            <% } %>
         </div>
     </main>
     <hr>
+    <%- include('../partials/bs')  %>
     <%- include('../partials/footer')  %>
 </body>
 </html>

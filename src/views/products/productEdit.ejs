@@ -2,83 +2,96 @@
 <html lang="en">
 <%- include('../partials/head') %>
 <body>
-    <%- include('../partials/header.ejs')  %>
-    <hr>
-    <main>
-        <h1>Edición de productos</h1>
-        <form action="/products/edit/<%= producto.id %>" method="post" enctype="multipart/form-data">
-            <div class="edicion">
-                    <div class="edicion-datos-control">
-                        <label for="name">Nombre del producto: </label>
-                        <% if(locals.errors && errors.name) { %>
-                            <p class="error-msg"><%= errors.name.msg %></p>
-                        <% } %>
-                        <input class="edicion-datos-control-input" type="text" name="name" id="name" value="<%= locals.oldData ? oldData.name : producto.name  %>">
+    <%- include('../partials/header')  %>
+    <main class="container-fluid">
+        <div class="seccion-titulos">
+            <h2>Edición de productos</h2>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <form action="/products/edit/<%= product.id %>" method="post" enctype="multipart/form-data">
+                    <% if(locals.errors && errors.name) { %>
+                        <p class="error-msg"><%= errors.name.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="name">Nombre del producto:</span>
+                        <input type="text" class="form-control" aria-label="name" aria-describedby="name" name="name" value="<%= locals.oldData ? oldData.name : product.product  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="description">Descripción: </label>
-                        <% if(locals.errors && errors.description) { %>
-                            <p class="error-msg"><%= errors.description.msg %></p>
-                        <% } %>
-                        <textarea class="edicion-datos-control-input" name="description" id="description" cols="50" rows="10"><%= locals.oldData ? oldData.description : producto.description  %></textarea>
+                    <% if(locals.errors && errors.description) { %>
+                        <p class="error-msg"><%= errors.description.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Descripción: </span>
+                        <textarea class="form-control" aria-label="description" name="description"><%= locals.oldData ? oldData.description : product.description  %></textarea>
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="image">Ingrese la imagen:</label>
-                        <% if(locals.errors && errors.image) { %>
-                            <p class="error-msg"><%= errors.image.msg %></p>
-                        <% } %>
-                        <input class="edicion-datos-control-input" type="file" name="image" id="image">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Imagen actual: </span>
+                        <img src="/img/products/<%= product.image %>" class="img-thumbnail">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="price">Precio: </label>
-                        <% if(locals.errors && errors.price) { %>
-                            <p class="error-msg"><%= errors.price.msg %></p>
-                        <% } %>
-                        <input type="text" name="price" id="price" value="<%= locals.oldData ? oldData.price : producto.price  %>">
+                    <% if(locals.errors && errors.image) { %>
+                        <p class="error-msg"><%= errors.image.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="image">Ingrese la imagen</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="category">Categoría: </label>
-                        <% if(locals.errors && errors.category) { %>
-                            <p class="error-msg"><%= errors.category.msg %></p>
+                    <% if(locals.errors && errors.price) { %>
+                        <p class="error-msg"><%= errors.price.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="price">Precio:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="price" name="price" value="<%= locals.oldData ? oldData.price : product.price  %>">
+                    </div>
+                    <% if(locals.errors && errors.category) { %>
+                        <p class="error-msg"><%= errors.category.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="category">Categoría: </label>
+                        <select class="form-select" id="category" name="category" value="<%= locals.oldData ? oldData.product.categories.category : product.categories.category  %>">
+                        <option value="<%= product.categories.id  %>" selected><%= product.categories.category  %></option>
+                        <% for (const category of categories){ %>
+                            <option value="<%= category.id %>"
+                            <%= locals.oldData && (product.categories.category === oldData.category) ? 'selected' : product.categories.category %>
+                        ><%= category.category %>
+                        </option>
                         <% } %>
-                        <select id="category" name="category">
-                            <option value="" selected>Elegí una categoría</option>
-                            <% let categories = ["Canastos", "Pantallas", "Sillones", "Mesas", "Infantiles", "Sillas"] %>
-                            <% for(const category of categories) { %>
-                                <option
-                                    value="<%= category %>"
-                                    <%= locals.oldData && (category === oldData.category) ? 'selected' : producto.category %>
-                                ><%= category %>
-                                </option>
-                            <% } %>
                         </select>
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="discount">Descuento: </label>
-                        <input type="text" name="discount" id="discount" value="<%= locals.oldData ? oldData.discount: producto.discount  %>">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="discount">Descuento:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="discount" name="discount" value="<%= locals.oldData ? oldData.discount : product.discount  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="stock">Stock: </label>
-                        <% if(locals.errors && errors.stock) { %>
-                            <p class="error-msg"><%= errors.stock.msg %></p>
-                        <% } %>
-                        <input type="text" name="stock" id="stock" value="<%= locals.oldData ? oldData.stock : producto.stock  %>">
+                    <% if(locals.errors && errors.stock) { %>
+                        <p class="error-msg"><%= errors.stock.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="stock">Stock:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="stock" name="stock" value="<%= locals.oldData ? oldData.stock : product.stock  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="order">Destacado: </label>
-                        <select id="order" name="order">
-                            <option value="1" selected>Si</option>
-                            <option value="0">No</option>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="order">Destacado: </label>
+                        <select class="form-select" id="order" name="order" value="<%= locals.oldData ? oldData.order : product.order  %>">
+                        <option value="0" selected>Elija...</option>
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
                         </select>
                     </div>
-                <div class="edicion-botones">
-                    <button type="submit">Guardar</button>
-                    <button type="button" class="producto-detalle-caracteristicas-botones-submit"><a href="/products">Cancelar</a></button>
-                </div>
+
+                    <div class="row mb-3 text-center">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary"><a href="/products/list">Cancelar</a></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </main>
     <hr>
-    <%- include('../partials/footer.ejs')  %>
+    <%- include('../partials/bs')  %>
+    <%- include('../partials/footer')  %>
 </body>
 </html>

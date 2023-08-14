@@ -1,40 +1,57 @@
-<header>
-    <div class="nav-imagen">
-        <img src="/img/header83.jpg" alt="">
+<header class="container-fluid">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Logo de Mi Mimbrería"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown nav-item-text">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/products/list/1">Canastos</a></li>
+              <li><a class="dropdown-item" href="/products/list/2">Infantiles</a></li>
+              <li><a class="dropdown-item" href="/products/list/3">Mesas</a></li>
+              <li><a class="dropdown-item" href="/products/list/4">Pantallas</a></li>
+              <li><a class="dropdown-item" href="/products/list/5">Sillas</a></li>
+              <li><a class="dropdown-item" href="/products/list/6">Sillones</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/products/list">Todos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-text">
+            <a class="nav-link" href="/nuestraHistoria">Nuestra Historia</a>
+          </li>
+          <li class="nav-item nav-item-text">
+            <a class="nav-link" href="/videoArtesanos">Video Artesan@s</a>
+          </li>
+          <li class="nav-item nav-item-text">
+            <a class="nav-link" href="/tuHuellaDeCarbono">Tu Huella de Carbono</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" action="/products/search" method="post">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="search" name="search">
+          <button type="submit" class="buscador"><i class="fas fa-search usuarios"></i></button>
+        </form>
+      </div>
+      <div class="usuarios">
+        <% if(locals.userLogged) { %>
+            <a href="/users/profile"><img class="avatar-logged" src="/img/avatars/<%= locals.userLogged.avatar %>" alt=""></i></a>
+        <% } else{ %>
+            <a href="/users/login"><i class="fas fa-user"></i></a>
+        <% } %>
+        <a href="/carts/cart"><i class="fas fa-shopping-cart"></i></a>
+      </div>
     </div>
-    <div class="nav-principal">
-        <div class="logo">
-            <a href="/"><img src="/img/logo.png" alt="Logo de Mi Mimbrería"></a>
+  </nav>
+  <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/img/banner.jpg" class="d-block w-100" alt="Mimimbreria - Artesanías en Mimbre">
         </div>
-        <div class="navegacion">
-            <div class="paginas">
-                <a href="/nuestrahistoria"><h3>Nuestra Historia</h3></a>
-            </div>
-            <div class="paginas">
-                <a href="/products"><h3>Productos</h3></a>
-            </div>
-            <div class="paginas">
-                <h3>Video Artesan@s</h3>
-            </div>
-            <div class="paginas">
-                <h3>Tu Huella de Carbono</h3>
-            </div>
-<!--             <div class="paginas">
-                <h3>Contacto</h3>
-            </div> -->
-        </div>
-        <div class="usuarios">
-            <input type="search" id="search" placeholder="Buscar..." />
-            <i class="fas fa-search"></i>
-            <% if(locals.userLogged) { console.log(locals.userLogged) %>
-                <a href="/profile"><img class="avatar-logged" src="/img/avatars/<%= locals.userLogged.avatar %>" alt=""></i></a>
-            <% } else{ %>
-                <a href="/login"><i class="fas fa-user"></i></a>
-            <% } %>
-            <a href="/carts/cart"><i class="fas fa-shopping-cart"></i></a>
-        </div>
-    </div>
-    <div class="burger-menu">
-        <i class="fas fa-bars"></i>
-    </div>
+      </div>
+  </div>
 </header>

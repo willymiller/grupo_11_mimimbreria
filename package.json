@@ -1,5 +1,5 @@
 {
-  "name": "grupo_11_mimimbreria",
+  "name": "grupo_11_mimimbreria_bd_bs",
   "version": "1.0.0",
   "description": "Venta de artículos de mimbre",
   "main": "app.js",
@@ -9,24 +9,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/willymiller/grupo_11_mimimbreria.git"
+    "url": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/willymiller/grupo_11_mimimbreria/issues"
+    "url": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS/issues"
   },
-  "homepage": "https://github.com/willymiller/grupo_11_mimimbreria#readme",
+  "homepage": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
-    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.5.2",
     "nodemon": "^2.0.22",
-    "start": "^5.1.0"
+    "sequelize": "^6.32.1"
   }
 }

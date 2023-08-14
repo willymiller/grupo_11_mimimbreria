@@ -2,82 +2,92 @@
 <html lang="en">
 <%- include('../partials/head') %>
 <body>
-    <%- include('../partials/header.ejs')  %>
-    <main>
-        <h1>Alta de productos</h1>
-        <form action="/products/create" method="post" enctype="multipart/form-data">
-            <div class="edicion">
-                    <div class="edicion-datos-control">
-                        <label for="name">Nombre del producto: </label>
-                        <% if(locals.errors && errors.name) { %>
-                            <p class="error-msg"><%= errors.name.msg %></p>
-                        <% } %>
-                        <input class="edicion-datos-control-input" type="text" name="name" id="name" value="<%= locals.oldData ? oldData.name : null  %>">
+    <%- include('../partials/header')  %>
+    <main class="container-fluid">
+        <div class="seccion-titulos">
+            <h2>Alta de productos</h2>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <form action="/products/create" method="post" enctype="multipart/form-data">
+                    <% if(locals.errors && errors.name) { %>
+                        <p class="error-msg"><%= errors.name.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="name">Nombre del producto:</span>
+                        <input type="text" class="form-control" aria-label="name" aria-describedby="name" name="name" value="<%= locals.oldData ? oldData.name : null  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="description">Descripción: </label>
-                        <% if(locals.errors && errors.description) { %>
-                            <p class="error-msg"><%= errors.description.msg %></p>
-                        <% } %>
-                        <textarea class="edicion-datos-control-input" name="description" id="description" cols="50" rows="10"><%= locals.oldData ? oldData.description : null  %></textarea>
+                    <% if(locals.errors && errors.description) { %>
+                        <p class="error-msg"><%= errors.description.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Descripción: </span>
+                        <textarea class="form-control" aria-label="description" name="description"><%= locals.oldData ? oldData.description : null  %></textarea>
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="image">Ingrese la imagen:</label>
-                        <% if(locals.errors && errors.image) { %>
-                            <p class="error-msg"><%= errors.image.msg %></p>
-                        <% } %>
-                        <input class="edicion-datos-control-input" type="file" name="image" id="image">
+                    <% if(locals.errors && errors.image) { %>
+                        <p class="error-msg"><%= errors.image.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="image">Ingrese la imagen</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="price">Precio: </label>
-                        <% if(locals.errors && errors.price) { %>
-                            <p class="error-msg"><%= errors.price.msg %></p>
-                        <% } %>
-                        <input type="text" name="price" id="price" value="<%= locals.oldData ? oldData.price : null  %>">
+                    <% if(locals.errors && errors.price) { %>
+                        <p class="error-msg"><%= errors.price.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="price">Precio:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="price" name="price" value="<%= locals.oldData ? oldData.price : null  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="category">Categoría: </label>
-                        <% if(locals.errors && errors.category) { %>
-                            <p class="error-msg"><%= errors.category.msg %></p>
+                    <% if(locals.errors && errors.category) { %>
+                        <p class="error-msg"><%= errors.category.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="category">Categoría: </label>
+                        <select class="form-select" id="category" name="category" value="<%= locals.oldData ? oldData.category.categoria : null  %>">
+                        <option value="" selected>Elija...</option>
+                        <% for (const category of categories){ %>
+                            <option value="<%= category.id %>"
+                                <% if(locals.oldData && oldData.category == category.id){ %>
+                                    selected <% } %>
+                                ><%= category.category %></option>
                         <% } %>
-                        <select id="category" name="category">
-                            <option value="" selected>Elegí una categoría</option>
-                            <% let categories = ["Canastos", "Pantallas", "Sillones", "Mesas", "Infantiles", "Sillas"] %>
-                            <% for(const category of categories) { %>
-                                <option
-                                    value="<%= category %>"
-                                    <%= locals.oldData && (category === oldData.category) ? 'selected' : "null" %>
-                                ><%= category %>
-                                </option>
-                            <% } %>
                         </select>
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="discount">Descuento: </label><br>
-                        <input type="text" name="discount" id="discount">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="discount">Descuento:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="discount" name="discount" value="<%= locals.oldData ? oldData.discount : null  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="stock">Stock: </label><br>
-                        <% if(locals.errors && errors.stock) { %>
-                            <p class="error-msg"><%= errors.stock.msg %></p>
-                        <% } %>
-                        <input type="text" name="stock" id="stock" value="<%= locals.oldData ? oldData.stock : null  %>">
+                    <% if(locals.errors && errors.stock) { %>
+                        <p class="error-msg"><%= errors.stock.msg %></p>
+                    <% } %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="stock">Stock:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="stock" name="stock" value="<%= locals.oldData ? oldData.stock : null  %>">
                     </div>
-                    <div class="edicion-datos-control">
-                        <label for="order">Destacado: </label>
-                        <select id="order" name="order">
-                            <option value="1" selected>Si</option>
-                            <option value="0">No</option>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="order">Destacado: </label>
+                        <select class="form-select" id="order" name="order" value="<%= locals.oldData ? oldData.order : null  %>">
+                        <option value="0" selected>Elija...</option>
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
                         </select>
                     </div>
-                <div class="edicion-botones">
-                    <button type="submit">Guardar</button>
-                    <button type="button" class="producto-detalle-caracteristicas-botones-submit"><a href="/products">Cancelar</a></button>
-                </div>
+
+                    <div class="row mb-3 text-center">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary"><a href="/products/list">Cancelar</a></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </main>
     <hr>
-    <%- include('../partials/footer.ejs')  %>
+    <%- include('../partials/bs')  %>
+    <%- include('../partials/footer')  %>
 </body>
 </html>
