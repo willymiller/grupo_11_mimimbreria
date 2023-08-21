@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS"
+    "url": "https://github.com/willymiller/grupo_11_mimimbreria"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS/issues"
+    "url": "https://github.com/willymiller/grupo_11_mimimbreria/issues"
   },
-  "homepage": "https://github.com/willymiller41/grupo_11_mimimbreria_gmail_BD_BS#readme",
+  "homepage": "https://github.com/willymiller/grupo_11_mimimbreria/#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
