@@ -62,9 +62,6 @@
                             <div class="col">
                                 <p class="card-text" style="text-decoration: line-through;">$ <%= toThousand(product.price) %></p>
                             </div>
-                            <div class="col">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col">
@@ -79,9 +76,6 @@
                             <div class="col">
                                 <p class="card-text">$ <%= toThousand(product.price) %></p>
                             </div>
-                            <div class="col">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
                         </div>
                     <% } %>
                     </div>
@@ -89,6 +83,10 @@
         <% }) %>
     </div>
     <hr>
+    <% if(locals.isLogged){
+        if(locals.userLogged.role_id === 3) { %>
+            <script src="/js/cartAddItems.js"></script>
+    <% }} %>
     <%- include('../partials/footer')  %>
     <%- include('../partials/bs')  %>
 </body>
